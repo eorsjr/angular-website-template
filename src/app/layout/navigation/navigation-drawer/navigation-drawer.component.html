@@ -1,0 +1,11 @@
+<div class="navigation-drawer">
+    <div class="list">
+        <a class="list-item" routerLink="/" (click)="toggleNavigationDrawer()">Home</a>
+        <a class="list-item" routerLink="/about" (click)="toggleNavigationDrawer()">About</a>
+        <a class="list-item" (click)="toggleNavigationDrawer()">Gallery</a>
+        <a class="list-item" (click)="toggleNavigationDrawer()">Blog</a>
+        <a class="list-item" (click)="toggleNavigationDrawer()">Contact</a>
+        <a class="list-item" (click)="toggleNavigationDrawer()">Other</a>
+    </div>
+</div>
+<app-scrim [visible]="navigationDrawerOpen()" (onScrimClick)="toggleNavigationDrawer()"></app-scrim>

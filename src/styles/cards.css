@@ -1,0 +1,22 @@
+/* || Elevated card */
+
+.elevated-card {
+    border-radius: 12px;
+    background-color: var(--md-sys-color-surface-container-low);
+    box-shadow: var(--elevation-level-1);
+}
+
+/* || Filled card */
+
+.filled-card {
+    border-radius: 12px;
+    background-color: var(--md-sys-color-surface-container-highest);
+}
+
+/* || Outlined card */
+
+.outlined-card {
+    border-radius: 12px;
+    border: 1px var(--md-sys-color-outline-variant) solid;
+    background-color: var(--md-sys-color-surface);
+}

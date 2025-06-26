@@ -1,0 +1,108 @@
+/* || Section */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+section {
+    padding-left: 16px;
+    padding-right: 16px;
+    transition: width 1s ease, opacity 1s ease;
+    overflow: hidden;
+}
+
+/* For compact and medium window classes */
+@media (max-width: 839px) {
+    section {
+        width: calc(100% - 16px - 16px);
+    }
+}
+
+/* For expanded, large and extra-large window classes */
+@media (min-width: 840px) {
+    section {
+        width: 66%;
+    }
+}
+
+section img {
+    height: auto;
+    width: 100%;
+}
+
+section .hero-content {
+    aspect-ratio: 16/9;
+    margin-left: -16px;
+    margin-right: -16px;
+}
+
+section .hero-content img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.side-by-side {
+    display: flex;
+    justify-content: center;
+}
+
+/* For compact, medium and expanded window classes */
+@media (max-width: 1199px) {
+    .side-by-side {
+        flex-direction: column;
+    }
+
+    .side-by-side .left-side {
+        width: 100%;
+    }
+
+    .side-by-side .right-side {
+        width: 100%;
+    }
+}
+
+/* For large and extra-large window classes */
+@media (min-width:1200px) {
+
+    .side-by-side .left-side {
+        margin-right: auto;
+        width: 47.5%;
+        max-width: 47.5%;
+    }
+
+    .side-by-side .right-side {
+        margin-left: auto;
+        width: 47.5%;
+        max-width: 47.5%;
+    }
+}
+
+/* || Clickable image */
+
+.clickable-image {
+    position: relative;
+    display: inline-block;
+    transition: box-shadow 250ms ease-in-out;
+}
+
+@media (hover:none) {
+    .clickable-image:active {
+        box-shadow: var(--elevation-level-1);
+        transition: none;
+    }
+}
+
+@media (hover:hover) {
+    .clickable-image:hover {
+        box-shadow: var(--elevation-level-1);
+    }
+}
+
+.clickable-image img {
+    display: block;
+    cursor: pointer;
+}
