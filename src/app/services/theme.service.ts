@@ -83,6 +83,7 @@ export class ThemeService {
   public toggleColorScheme(): void {
     document.body.classList.toggle('dark');
     this.setLocalStorage('dark', document.body.classList.contains('dark') ? 'true' : 'false');
+    this.updateThemeColor();
   }
 
   /**
