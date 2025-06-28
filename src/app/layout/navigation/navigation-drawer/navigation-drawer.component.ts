@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ScrimComponent } from '../../scrim/scrim.component';
+import { ElevationService } from '../../../services/elevation.service';
 
 @Component({
   selector: 'app-navigation-drawer',
@@ -10,6 +11,9 @@ import { ScrimComponent } from '../../scrim/scrim.component';
   styleUrl: './navigation-drawer.component.css'
 })
 export class NavigationDrawerComponent {
+
+  constructor(private elevationService: ElevationService) {
+  }
 
   /** Signal to track whether the navigation drawer is open */
   public navigationDrawerOpen = signal(false);
@@ -25,9 +29,12 @@ export class NavigationDrawerComponent {
    */
   public toggleNavigationDrawer(): void {
     const drawer = document.querySelector('.navigation-drawer');
+
     if (drawer) {
       this.navigationDrawerOpen.set(!this.navigationDrawerOpen());
       drawer.classList.toggle('show');
     }
+
+    this.elevationService.setDrawerState(this.navigationDrawerOpen());
   }
 }
