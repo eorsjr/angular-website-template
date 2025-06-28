@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { ScrollingService } from '../../services/scrolling.service';
 
 @Component({
   selector: 'app-scrim',
@@ -7,6 +8,8 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
   styleUrls: ['./scrim.component.css']
 })
 export class ScrimComponent implements OnChanges {
+
+  constructor(private scrollingService: ScrollingService) {}
 
   @Input() public visible = false; // Whether the scrim should be visible. Triggers transition state.
   @Output() public onScrimClick = new EventEmitter<void>(); // Emits when the scrim is clicked.
@@ -21,9 +24,11 @@ export class ScrimComponent implements OnChanges {
     if (this.visible) {
       requestAnimationFrame(() => {
         this.isVisible = true;
+        this.scrollingService.disableScroll();
       });
     } else {
       this.isVisible = false;
+      this.scrollingService.enableScroll();
     }
   }
 
