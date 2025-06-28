@@ -20,6 +20,7 @@ export class AppComponent {
     this.themeService.setInitialTheme();
     this.themeService.setInitialColorScheme();
     this.themeService.setInitialFont();
+    this.themeService.updateThemeColor();
   }
 
   @ViewChild(NavigationComponent)
