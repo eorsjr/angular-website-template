@@ -36,8 +36,6 @@ export class ScrollingService {
    * @returns {void}
    */
   public scrollToTop(): void {
-    console.log('Scrolling to top');
-
     if (window.innerWidth < 600) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -51,7 +49,6 @@ export class ScrollingService {
    * @returns {void}
    */
   public jumpToTop(): void {
-    console.log('Jumping to top');
     if (window.innerWidth < 600) {
       const html = document.documentElement;
       const originalBehavior = html.style.scrollBehavior;
