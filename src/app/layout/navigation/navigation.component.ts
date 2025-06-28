@@ -36,7 +36,7 @@ export class NavigationComponent implements AfterViewInit {
     const navItems = this.elRef.nativeElement.querySelectorAll('.nav-button, .list-item');
 
     navItems.forEach((el: HTMLElement) => {
-      const route = el.getAttribute('routerLink');
+      const route = el.getAttribute('customLink') || el.getAttribute('routerLink');
       this.renderer.removeAttribute(el, 'id');
 
       if (route && this.matchRoute(route, currentUrl)) {

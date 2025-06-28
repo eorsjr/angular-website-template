@@ -43,26 +43,4 @@ export class ScrollingService {
       paneElement?.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
-
-  /**
-   * Jumps to the top of the page or pane without smooth scrolling.
-   * @returns {void}
-   */
-  public jumpToTop(): void {
-    if (window.innerWidth < 600) {
-      const html = document.documentElement;
-      const originalBehavior = html.style.scrollBehavior;
-      html.style.scrollBehavior = 'auto';
-      window.scrollTo({ top: 0 });
-      html.style.scrollBehavior = originalBehavior;
-    } else {
-      const paneElement = document.querySelector('.pane') as HTMLElement;
-      if (paneElement) {
-        const originalBehavior = paneElement.style.scrollBehavior;
-        paneElement.style.scrollBehavior = 'auto';
-        paneElement.scrollTo({ top: 0 });
-        paneElement.style.scrollBehavior = originalBehavior;
-      }
-    }
-  }
 }
