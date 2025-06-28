@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { ScrollingService } from '../../services/scrolling.service';
 
 @Component({
   selector: 'app-pane',
@@ -9,4 +11,14 @@ import { RouterModule } from '@angular/router';
   styleUrl: './pane.component.css'
 })
 export class PaneComponent {
+  constructor(private router: Router, private scrollingService: ScrollingService) { }
+
+  ngOnInit(): void {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.scrollingService.enableScroll();
+        this.scrollingService.jumpToTop();
+      });
+  }
 }
