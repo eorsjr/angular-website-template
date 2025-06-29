@@ -5,6 +5,8 @@ import { TopAppBarComponent } from "./layout/top-app-bar/top-app-bar.component";
 import { ThemeService } from './services/theme.service';
 import { NavigationDrawerComponent } from './layout/navigation/navigation-drawer/navigation-drawer.component';
 import { ElevationService } from './services/elevation.service';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -16,15 +18,20 @@ import { ElevationService } from './services/elevation.service';
 export class AppComponent {
   title = 'angular-website-template';
 
-  constructor(private themeService: ThemeService, private elevationService: ElevationService) { }
+  constructor(private router: Router, private themeService: ThemeService, private elevationService: ElevationService) {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.themeService.setInitialFont();
+      });
+  }
 
-    @ViewChild(NavigationDrawerComponent)
+  @ViewChild(NavigationDrawerComponent)
   drawer!: NavigationDrawerComponent;
 
   ngAfterViewInit() {
     this.themeService.setInitialTheme();
     this.themeService.setInitialColorScheme();
-    this.themeService.setInitialFont();
     this.themeService.updateThemeColor();
     this.elevationService.initialize();
   }
