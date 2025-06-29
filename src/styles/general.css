@@ -104,3 +104,31 @@ th {
     padding: 20px;
     border: 1px solid;
 }
+
+td {
+    cursor: pointer;
+}
+
+@media (hover:none) {
+    td {
+        transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+    }
+
+    td:active {
+        background-color: var(--md-sys-color-inverse-surface);
+        color: var(--md-sys-color-inverse-on-surface);
+        transition: none;
+    }
+}
+
+@media (hover:hover) {
+    td:hover {
+        background-color: var(--md-sys-color-inverse-surface);
+        color: var(--md-sys-color-inverse-on-surface);
+    }
+
+    td:active {
+        background-color: var(--md-sys-color-surface);
+        color: var(--md-sys-color-on-surface);
+    }
+}

@@ -45,11 +45,14 @@ Additionally, features unrelated to MWC are also being developed to improve the 
 
 - **Slideshow**
 
+- **Copy Table**
+
+    Copy entire tables or individual cells with one click.
+
 
 ### Features Currently in Development
-- :white_check_mark: Slideshow
 - :white_check_mark: Image Grid
-- :construction: Copy Table Feature
+- :white_check_mark: Copy Table
 
 ### Planned Features
 - Lightbox

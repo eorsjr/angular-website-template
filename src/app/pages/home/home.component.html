@@ -35,25 +35,21 @@
                 </ul>
             </div>
             <div class="right-side">
-                <div class="table-container">
-                    <table>
+                <table #copyableTable1>
+                    <tr>
                         <th colspan="100%">Name</th>
-                        <tr>
-                            <th>First name</th>
-                            <th>Last name</th>
-                        </tr>
-                        <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                        </tr>
-                        <tr>
-                            <td>Jane</td>
-                            <td>Doe</td>
-                        </tr>
-                    </table>
-                </div>
-                <button class="common-button filled-button">
-                    <span class="label-text">Filled button</span>
+                    </tr>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                    </tr>
+                    <tr *ngFor="let row of copyableTable1Data">
+                        <td *ngFor="let cell of row" (click)="copyCell(cell)">{{ cell }}</td>
+                    </tr>
+                </table>
+                <button class="common-button filled-button with-icon" (click)="copyTable(copyableTable1)">
+                    <span class="material-symbols-outlined icon">content_copy</span>
+                    <span class="label-text">Copy table</span>
                 </button>
             </div>
         </div>
