@@ -24,6 +24,7 @@ export class PaneComponent {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
         this.scrollingService.enableScroll();
+        this.scrollingService.scrollToTop();
         const fragment = this.router.parseUrl(this.router.url).fragment;
         if (fragment) {
           setTimeout(() => {

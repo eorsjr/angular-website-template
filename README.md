@@ -43,10 +43,11 @@ Additionally, features unrelated to MWC are also being developed to improve the 
 
         *Noto Sans, Anta, Limelight, Pattaya*
 
+- **Slideshow**
+
 
 ### Features Currently in Development
-- :white_check_mark: Automatically hide and show the Top App Bar and Navigation Bar based on scroll direction on mobile
-- :construction: Slideshow
+- :white_check_mark: Slideshow
 
 ### Planned Features
 - Lightbox
