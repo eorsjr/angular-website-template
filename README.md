@@ -49,10 +49,10 @@ Additionally, features unrelated to MWC are also being developed to improve the 
 ### Features Currently in Development
 - :white_check_mark: Slideshow
 - :white_check_mark: Image Grid
+- :construction: Copy Table Feature
 
 ### Planned Features
 - Lightbox
-- Copy-table
 
 ## Related Projects
 
