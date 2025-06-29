@@ -46,10 +46,10 @@ Additionally, features unrelated to MWC are also being developed to improve the 
 
 ### Features Currently in Development
 - :white_check_mark: Automatically hide and show the Top App Bar and Navigation Bar based on scroll direction on mobile
+- :construction: Slideshow
 
 ### Planned Features
 - Lightbox
-- Slideshow
 - Image-grid
 - Copy-table
 
