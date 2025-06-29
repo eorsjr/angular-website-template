@@ -77,6 +77,8 @@ export class ScrollingService {
         } else if (currentScrollPos < this.prevScrollPos) {
           topAppBar?.classList.remove('remove');
         }
+      } else {
+        topAppBar?.classList.remove('remove');
       }
     }
 
