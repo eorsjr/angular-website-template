@@ -1,12 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { NavigationService } from './navigation.service';
+import { effect } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScrollingService {
-
-  constructor() { }
+  private drawerOpen = false; // Tracks if the navigation drawer is open
   private scrollPos = 0; // Current scroll position of the window
+  private prevScrollPos = window.scrollY; // Previous scroll position to determine scroll direction
+
+
+  constructor(private navService: NavigationService) {
+    effect(() => {
+      this.drawerOpen = this.navService.navigationDrawerOpen();
+    });
+    window.addEventListener('scroll', () => this.handleScrollVisibility());
+  }
 
   /**
    * Disables scrolling on the body element and saves the current scroll position.
@@ -42,5 +52,34 @@ export class ScrollingService {
       const paneElement = document.querySelector('.pane') as HTMLElement;
       paneElement?.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  }
+
+  /**
+   * Toggles visibility of navigation and top app bar based on scroll direction.
+   * @returns {void}
+   */
+  public handleScrollVisibility(): void {
+    const navComponent = document.querySelector('.navigation-component') as HTMLElement;
+    const topAppBar = document.querySelector('.top-app-bar') as HTMLElement;
+
+    const currentScrollPos = window.scrollY;
+
+    if (!this.drawerOpen) {
+      if (window.innerWidth >= 600 || this.prevScrollPos > currentScrollPos || currentScrollPos < 1) {
+        navComponent?.classList.remove('remove');
+      } else {
+        navComponent?.classList.add('remove');
+      }
+
+      if (window.innerWidth < 600) {
+        if (currentScrollPos > this.prevScrollPos && currentScrollPos > 1) {
+          topAppBar?.classList.add('remove');
+        } else if (currentScrollPos < this.prevScrollPos) {
+          topAppBar?.classList.remove('remove');
+        }
+      }
+    }
+
+    this.prevScrollPos = currentScrollPos;
   }
 }
