@@ -12,6 +12,8 @@ export class ThemeService {
   private themeIndex = 0;
   private fontIndex = 0;
 
+  public isDarkMode = signal(document.body.classList.contains('dark')); // Signal to track whether the current color scheme is dark mode.
+
   /**
  * Applies the initial theme from local storage or falls back to the default.
  * @returns {void}
@@ -42,12 +44,15 @@ export class ThemeService {
   public setInitialColorScheme(): void {
     const darkThemeLocalStorageValue = this.getLocalStorage("dark");
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = darkThemeLocalStorageValue === "true" ||
+      (darkThemeLocalStorageValue === "" && prefersDarkScheme);
 
-    if (darkThemeLocalStorageValue === "true" || (darkThemeLocalStorageValue === "" && prefersDarkScheme)) {
+    if (isDark) {
       document.body.classList.add('dark');
     } else {
       document.body.classList.remove('dark');
     }
+    this.isDarkMode.set(isDark);
   }
 
   /**
@@ -83,6 +88,7 @@ export class ThemeService {
   public toggleColorScheme(): void {
     document.body.classList.toggle('dark');
     this.setLocalStorage('dark', document.body.classList.contains('dark') ? 'true' : 'false');
+    this.isDarkMode.set(document.body.classList.contains('dark'));
     this.updateThemeColor();
   }
 

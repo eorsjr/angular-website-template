@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { NavigationComponentComponent } from "./navigation-component/navigation-component.component";
@@ -12,9 +12,6 @@ import { NavigationDrawerComponent } from "./navigation-drawer/navigation-drawer
   styleUrl: './navigation.component.css'
 })
 export class NavigationComponent implements AfterViewInit {
-
-  @ViewChild(NavigationDrawerComponent)
-  drawer!: NavigationDrawerComponent;
 
   constructor(private router: Router, private elRef: ElementRef, private renderer: Renderer2) { }
 
@@ -53,20 +50,5 @@ export class NavigationComponent implements AfterViewInit {
    */
   private matchRoute(route: string, currentUrl: string): boolean {
     return currentUrl.split('#')[0] === route;
-  }
-
-  /**
-   * Toggles the navigation drawer open or closed.
-   */
-  public toggleNavigationDrawer(): void {
-    this.drawer.toggleNavigationDrawer();
-  }
-
-  /**
-   * Indicates whether the navigation drawer is currently open.
-   * @returns {boolean} True if the drawer is open, otherwise false.
-   */
-  public get isDrawerOpen(): boolean {
-    return this.drawer?.isDrawerOpen ?? false;
   }
 }

@@ -1,5 +1,6 @@
-import { Component, signal, EventEmitter, Output, Input } from '@angular/core';
+import { Component} from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-top-app-bar',
@@ -10,32 +11,14 @@ import { ThemeService } from '../../services/theme.service';
 })
 export class TopAppBarComponent {
 
-  constructor(private themeService: ThemeService) {
+  constructor(public themeService: ThemeService, public navService: NavigationService) {
   }
-
-  @Input() public drawerOpen = false; // Indicates whether the navigation drawer is open
-  @Output() public toggleDrawerRequested = new EventEmitter<void>(); // Event emitter to request toggling the navigation drawer
-
-  /**
-   * Emits an event to the parent component requesting the navigation drawer to toggle.
-   * @returns {void}
-   */
-  public toggleDrawer(): void {
-    this.toggleDrawerRequested.emit();
-  }
-
-  /**
-   * Signal to track whether the current color scheme is dark mode.
-   * Initialized based on the body's class list.
-   */
-  public isDarkMode = signal(document.body.classList.contains('dark'));
 
   /**
  * Toggles between light and dark color schemes.
  */
   public toggleColorScheme(): void {
     this.themeService.toggleColorScheme();
-    this.isDarkMode.set(document.body.classList.contains('dark'));
   }
 
   /**

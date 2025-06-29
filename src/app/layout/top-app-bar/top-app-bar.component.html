@@ -1,18 +1,18 @@
 <header class="top-app-bar">
     <button class="filled-icon-button" id="menu-button"
-            [attr.aria-label]="drawerOpen ? 'Close Menu' : 'Open Menu'"
-            (click)="toggleDrawer()">
+            [attr.aria-label]="navService.navigationDrawerOpen() ? 'Close Menu' : 'Open Menu'"
+            (click)="navService.toggleNavigationDrawer()">
         <span class="material-symbols-outlined icon">
-            {{ drawerOpen ? 'menu_open' : 'menu' }}
+            {{ navService.navigationDrawerOpen() ? 'menu_open' : 'menu' }}
         </span>
     </button>
     <div id="headline">Headline</div>
     <div class="trailing-icons">
         <button class="filled-icon-button" id="color-scheme-button"
-            [attr.aria-label]="isDarkMode() ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+            [attr.aria-label]="themeService.isDarkMode() ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
             (click)="toggleColorScheme()">
             <span class="material-symbols-outlined icon">
-                {{ isDarkMode() ? 'light_mode' : 'dark_mode' }}
+                {{ themeService.isDarkMode() ? 'light_mode' : 'dark_mode' }}
             </span>
         </button>
         <button class="filled-icon-button" id="palette-button" aria-label="Toggle Color Palette"

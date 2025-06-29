@@ -1,9 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavigationComponent } from './layout/navigation/navigation.component';
 import { PaneComponent } from "./layout/pane/pane.component";
 import { TopAppBarComponent } from "./layout/top-app-bar/top-app-bar.component";
 import { ThemeService } from './services/theme.service';
-import { NavigationDrawerComponent } from './layout/navigation/navigation-drawer/navigation-drawer.component';
 import { ElevationService } from './services/elevation.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -26,9 +25,6 @@ export class AppComponent {
       });
   }
 
-  @ViewChild(NavigationDrawerComponent)
-  drawer!: NavigationDrawerComponent;
-
   ngAfterViewInit() {
     this.themeService.setInitialTheme();
     this.themeService.setInitialColorScheme();
@@ -36,24 +32,5 @@ export class AppComponent {
       this.themeService.updateThemeColor();
     });
     this.elevationService.initialize();
-  }
-
-  @ViewChild(NavigationComponent)
-  navigation!: NavigationComponent;
-
-  /**
-   * Delegates the drawer toggle action to the child NavigationComponent.
-   * @returns {void}
-   */
-  handleToggleDrawer(): void {
-    this.navigation.toggleNavigationDrawer();
-  }
-
-  /**
-   * Indicates whether the navigation drawer is currently open.
-   * @returns {boolean}
-   */
-  get isDrawerOpen(): boolean {
-    return this.navigation?.isDrawerOpen ?? false;
   }
 }

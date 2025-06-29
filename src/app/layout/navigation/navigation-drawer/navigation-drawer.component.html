@@ -1,11 +1,11 @@
 <div class="navigation-drawer">
     <div class="list">
-        <a class="list-item" routerLink="/" (click)="toggleNavigationDrawer()">Home</a>
-        <a class="list-item" routerLink="/about" (click)="toggleNavigationDrawer()">About</a>
-        <a class="list-item" (click)="toggleNavigationDrawer()">Gallery</a>
-        <a class="list-item" (click)="toggleNavigationDrawer()">Blog</a>
-        <a class="list-item" (click)="toggleNavigationDrawer()">Contact</a>
-        <a class="list-item" (click)="toggleNavigationDrawer()">Other</a>
+        <a class="list-item" routerLink="/" (click)="navService.toggleNavigationDrawer()">Home</a>
+        <a class="list-item" routerLink="/about" (click)="navService.toggleNavigationDrawer()">About</a>
+        <a class="list-item" (click)="navService.toggleNavigationDrawer()">Gallery</a>
+        <a class="list-item" (click)="navService.toggleNavigationDrawer()">Blog</a>
+        <a class="list-item" (click)="navService.toggleNavigationDrawer()">Contact</a>
+        <a class="list-item" (click)="navService.toggleNavigationDrawer()">Other</a>
     </div>
 </div>
-<app-scrim [visible]="navigationDrawerOpen()" (onScrimClick)="toggleNavigationDrawer()"></app-scrim>
+<app-scrim [visible]="navService.navigationDrawerOpen()" (onScrimClick)="navService.toggleNavigationDrawer()"></app-scrim>

@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
+import { NavigationService } from './navigation.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ElevationService {
 
-  constructor() { }
+  constructor(private navSerivce: NavigationService) { }
 
   private topAppBar: HTMLElement | null = null; // Reference to the top app bar element
-  private isDrawerOpen = false; // State to track if the navigation drawer is open
 
   /**
    * Initializes the elevation service by setting up event listeners for scroll and resize events.
@@ -30,19 +30,10 @@ export class ElevationService {
 
     if (!this.topAppBar) return;
 
-    if (scrolled || this.isDrawerOpen) {
+    if (scrolled || this.navSerivce.navigationDrawerOpen()) {
       this.topAppBar.style.setProperty('box-shadow', 'var(--elevation-level-1)');
     } else {
       this.topAppBar.style.setProperty('box-shadow', 'none');
     }
-  }
-
-  /**
- * Sets the state of the navigation drawer and updates the elevation accordingly.
- * @param {boolean} isOpen - Indicates whether the navigation drawer is open or closed.
- */
-  public setDrawerState(isOpen: boolean): void {
-    this.isDrawerOpen = isOpen;
-    this.updateElevation();
   }
 }
