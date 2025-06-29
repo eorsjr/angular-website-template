@@ -48,7 +48,7 @@ Additionally, features unrelated to MWC are also being developed to improve the 
 
 ### Features Currently in Development
 - :white_check_mark: Slideshow
-- :construction: Image-grid
+- :white_check_mark: Image Grid
 
 ### Planned Features
 - Lightbox
