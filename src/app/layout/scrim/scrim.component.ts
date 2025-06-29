@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnChanges } from '@angular/core';
 import { ScrollingService } from '../../services/scrolling.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-scrim',
@@ -9,10 +10,7 @@ import { ScrollingService } from '../../services/scrolling.service';
 })
 export class ScrimComponent implements OnChanges {
 
-  constructor(private scrollingService: ScrollingService) {}
-
-  @Input() public visible = false; // Whether the scrim should be visible. Triggers transition state.
-  @Output() public onScrimClick = new EventEmitter<void>(); // Emits when the scrim is clicked.
+  constructor(private scrollingService: ScrollingService, public navService: NavigationService) {}
 
   public isVisible = false; // Internal visibility state used to trigger CSS transitions.
 
@@ -21,22 +19,12 @@ export class ScrimComponent implements OnChanges {
    * @returns {void}
    */
   public ngOnChanges(): void {
-    if (this.visible) {
+    if (this.navService.navigationDrawerOpen()) {
       requestAnimationFrame(() => {
-        this.isVisible = true;
         this.scrollingService.disableScroll();
       });
     } else {
-      this.isVisible = false;
       this.scrollingService.enableScroll();
     }
-  }
-
-  /**
-   * Emits the click event to parent component.
-   * @returns {void}
-   */
-  public onClick(): void {
-    this.onScrimClick.emit();
   }
 }
