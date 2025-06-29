@@ -1,27 +1,58 @@
 # AngularWebsiteTemplate
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+This project is an Angular-based website template inspired by Google's Material Design 3 Guidelines. As Material Web Components (MWC) entered maintenance mode on June 10, 2024, this project focuses on building custom components to ensure independence from MWC.
 
-## Development server
+Additionally, features unrelated to MWC are also being developed to improve the usability and modularity of the template.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+### Highlights
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### Components
+- **Top App Bar**
+- **Navigation Component** (adaptive)
+    - Navigation Bar (for compact window class)
+    - Navigation Rail (for larger window classes)
+- **Navigation Drawer**
+- **Pane**
+- **Scrim**
+- **Cards**
+    - Elevated Card
+    - Filled Card
+    - Outlined Card
+- **Buttons**
+    - Filled Button
+    - Filled Tonal Button
+    - Outlined Button
+    - Filled Icon Button
 
-## Build
+#### Additional Features
+- **Toggle Color Scheme**
+    
+    Switch between light and dark mode
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Toggle Color Palette**
 
-## Running unit tests
+    - Available palettes:
+        
+        *silver, green, yellow, orange, pink, baseline, blue*
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Toggle Font**
 
-## Running end-to-end tests
+    - Available fonts:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+        *Noto Sans, Anta, Limelight, Pattaya*
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Features Currently in Development
+- Automatically hide and show the Top App Bar and Navigation Bar based on scroll direction on mobile
+
+### Planned Features
+- Lightbox
+- Slideshow
+- Image-grid
+- Copy-table
+
+## Related Projects
+
+A static version built with only HTML, CSS, and JavaScript is available at https://github.com/eorsjr/website-template.
