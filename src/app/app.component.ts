@@ -32,7 +32,9 @@ export class AppComponent {
   ngAfterViewInit() {
     this.themeService.setInitialTheme();
     this.themeService.setInitialColorScheme();
-    this.themeService.updateThemeColor();
+    setTimeout(() => {
+      this.themeService.updateThemeColor();
+    });
     this.elevationService.initialize();
   }
 
