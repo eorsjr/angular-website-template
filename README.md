@@ -43,7 +43,7 @@ Additionally, features unrelated to MWC are also being developed to improve the 
 
 - **Slideshow**
 
--- **Lightbox**
+- **Lightbox**
 
 - **Copy Table**
 
