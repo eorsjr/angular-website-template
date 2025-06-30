@@ -30,6 +30,7 @@ export class AppComponent {
   ngAfterViewInit() {
     this.themeService.setInitialTheme();
     this.themeService.setInitialColorScheme();
+    this.themeService.handleColorSchemeChange();
     setTimeout(() => {
       this.themeService.updateThemeColor();
     });

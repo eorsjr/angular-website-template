@@ -82,6 +82,21 @@ export class ThemeService {
   }
 
   /**
+   * Handles changes in the system's color scheme preference and updates the color scheme accordingly.
+   * @returns {void}
+   */
+  public handleColorSchemeChange(): void {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', (event) => {
+      const prefersDarkScheme = event.matches;
+      document.body.classList.toggle('dark', prefersDarkScheme);
+      this.setLocalStorage('dark', prefersDarkScheme ? 'true' : 'false');
+      this.isDarkMode.set(prefersDarkScheme);
+      this.updateThemeColor();
+    });
+  }
+
+  /**
   * Toggles between dark and light mode and updates local storage accordingly.
   * @returns {void}
   */
