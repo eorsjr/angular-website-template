@@ -1,1 +1,1 @@
-<div class="scrim" [class.visible]="navService.navigationDrawerOpen()" (click)="navService.toggleNavigationDrawer()"></div>
+<div class="scrim" [class.visible]="scrimService.isVisible()" [style.z-index]="scrimService.zIndex()" (click)="toggleDrawer()"></div>

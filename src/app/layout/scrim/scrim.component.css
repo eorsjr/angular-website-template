@@ -1,6 +1,4 @@
 .scrim {
-    transition: opacity 0.3s ease, backdrop-filter 0.3s ease, background-color 0.3s ease;
-
     position: fixed;
     top: 0;
     left: 0;
@@ -10,10 +8,7 @@
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
     pointer-events: none;
-    transition:
-        background-color 0.3s ease,
-        backdrop-filter 0.3s ease;
-    z-index: 1;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 .scrim.visible {

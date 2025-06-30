@@ -1,0 +1,15 @@
+<div class="lightbox" *ngIf="lightboxService.lightboxOpen()" [class.visible]="lightboxService.lightboxOpen()">
+  <button class="filled-icon-button" id="close-button" aria-label="Close Lightbox" (click)="closeLightbox()">
+    <span class="material-symbols-outlined icon">close</span>
+  </button>
+  <button class="filled-icon-button" id="previous-button" aria-label="Previous" (click)="showPreviousImage()">
+    <span class="material-symbols-outlined icon">arrow_back</span>
+  </button>
+  <button class="filled-icon-button" id="next-button" aria-label="Next" (click)="showNextImage()">
+    <span class="material-symbols-outlined icon">arrow_forward</span>
+  </button>
+  <ng-container *ngIf="lightboxService.currentImage() as img">
+    <img id="lightbox-image" [src]="img.src" [alt]="img.alt || ''" [class.fade-in]="loaded" (load)="onImageLoad()">
+    <div id="lightbox-caption">{{ img.alt }}</div>
+  </ng-container>
+</div>

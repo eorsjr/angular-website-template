@@ -28,34 +28,33 @@ Additionally, features unrelated to MWC are also being developed to improve the 
 
 #### Additional Features
 - **Toggle Color Scheme**
-    
+
     Switch between light and dark mode
 
 - **Toggle Color Palette**
-
     - Available palettes:
         
         *silver, green, yellow, orange, pink, baseline, blue*
 
 - **Toggle Font**
-
     - Available fonts:
 
         *Noto Sans, Anta, Limelight, Pattaya*
 
 - **Slideshow**
 
+-- **Lightbox**
+
 - **Copy Table**
 
     Copy entire tables or individual cells with one click.
 
-
-### Features Currently in Development
-- :white_check_mark: Copy Table (Completed)
-- :construction: Lightbox (In Progress)
-
 ### Planned Features
-- No additional features are currently planned.
+No additional features are currently planned.
+
+## Currently in Development
+- :white_check_mark: Copy Table Feature (Completed)
+- :white_check_mark: Lightbox Feature (Completed)
 
 ## Related Projects
 

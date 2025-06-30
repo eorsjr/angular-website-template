@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { signal } from '@angular/core';
+import { ElevationService } from './elevation.service';
+import { ScrimService } from './scrim.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NavigationService {
 
-  constructor() { }
+  constructor(private elevationService: ElevationService, private scrimService: ScrimService) { }
 
   public navigationDrawerOpen = signal(false); // Signal to track whether the navigation drawer is open
 
@@ -20,7 +22,11 @@ export class NavigationService {
     if (drawer) {
       this.navigationDrawerOpen.set(!this.navigationDrawerOpen());
       drawer.classList.toggle('show');
+      this.elevationService.updateElevation();
+      this.scrimService.setZIndex(1);
+      this.scrimService.isVisible.set(this.navigationDrawerOpen());
     }
+    
   }
 }
 

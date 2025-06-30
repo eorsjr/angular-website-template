@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { NavigationService } from './navigation.service';
 
 @Injectable({
@@ -6,7 +6,7 @@ import { NavigationService } from './navigation.service';
 })
 export class ElevationService {
 
-  constructor(private navSerivce: NavigationService) { }
+  constructor(private injector: Injector) { }
 
   private topAppBar: HTMLElement | null = null; // Reference to the top app bar element
 
@@ -24,13 +24,13 @@ export class ElevationService {
    * Updates the elevation of the top app bar based on the scroll position or if the navigation drawer is open.
    * @returns {void}
    */
-  private updateElevation(): void {
+  public updateElevation(): void {
 
     const scrolled = window.scrollY > 0;
 
     if (!this.topAppBar) return;
-
-    if (scrolled || this.navSerivce.navigationDrawerOpen()) {
+      const navigationService = this.injector.get(NavigationService);
+    if (scrolled || navigationService.navigationDrawerOpen()) {
       this.topAppBar.style.setProperty('box-shadow', 'var(--elevation-level-1)');
     } else {
       this.topAppBar.style.setProperty('box-shadow', 'none');
