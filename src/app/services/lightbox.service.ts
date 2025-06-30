@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { signal } from '@angular/core';
 import { ScrimService } from './scrim.service';
+import { ScrollingService } from './scrolling.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { ScrimService } from './scrim.service';
 
 export class LightboxService {
 
-  constructor(private scrimService: ScrimService) { }
+  constructor(private scrimService: ScrimService, private scrollingService: ScrollingService) { }
   
   public lightboxOpen = signal(false); // Signal to track whether the lightbox is open
   public images = signal<{ src: string, alt?: string }[]>([]); // Signal to store the array of images for the lightbox
@@ -27,6 +28,7 @@ export class LightboxService {
     this.lightboxOpen.set(true);
     this.scrimService.setZIndex(4);
     this.scrimService.isVisible.set(true);
+    this.scrollingService.disableScroll();
   }
 
   /**
@@ -36,6 +38,7 @@ export class LightboxService {
   public closeLightbox(): void {
     this.lightboxOpen.set(false);
     this.scrimService.isVisible.set(false);
+    this.scrollingService.enableScroll();
   }
 
   /**
