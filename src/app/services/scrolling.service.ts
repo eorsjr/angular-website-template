@@ -25,7 +25,6 @@ export class ScrollingService {
   public disableScroll(): void {
     this.scrollPos = window.scrollY;
     document.body.style.top = `-${this.scrollPos}px`;
-    document.body.style.position = 'fixed';
     document.body.style.overflow = 'hidden';
   }
 
