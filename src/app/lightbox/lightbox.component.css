@@ -21,7 +21,7 @@
     max-height: 66vh;
     max-width: 100vw;
     opacity: 0;
-    transition: opacity 1s ease;
+    transition: opacity 0.3s ease;
 }
 
 #lightbox-image.fade-in {
@@ -38,6 +38,7 @@
 .lightbox .filled-icon-button {
     background-color: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
+    z-index: 4;
 }
 
 .lightbox #close-button {
