@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationComponent } from './layout/navigation/navigation.component';
 import { PaneComponent } from "./layout/pane/pane.component";
-import { TopAppBarComponent } from "./layout/top-app-bar/top-app-bar.component";
+import { AppBarComponent as AppBarComponent } from "./layout/app-bar/app-bar.component";
 import { ThemeService } from './services/theme.service';
 import { ElevationService } from './services/elevation.service';
 import { Router, NavigationEnd } from '@angular/router';
@@ -12,7 +12,7 @@ import { LightboxComponent } from './lightbox/lightbox.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavigationComponent, PaneComponent, TopAppBarComponent, ScrimComponent, LightboxComponent],
+  imports: [NavigationComponent, PaneComponent, AppBarComponent, ScrimComponent, LightboxComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

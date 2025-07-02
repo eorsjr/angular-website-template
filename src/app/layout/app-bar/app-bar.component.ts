@@ -3,13 +3,13 @@ import { ThemeService } from '../../services/theme.service';
 import { NavigationService } from '../../services/navigation.service';
 
 @Component({
-  selector: 'app-top-app-bar',
+  selector: 'app-app-bar',
   standalone: true,
   imports: [],
-  templateUrl: './top-app-bar.component.html',
-  styleUrl: './top-app-bar.component.css'
+  templateUrl: './app-bar.component.html',
+  styleUrl: './app-bar.component.css'
 })
-export class TopAppBarComponent {
+export class AppBarComponent {
 
   constructor(public themeService: ThemeService, public navService: NavigationService) {
   }

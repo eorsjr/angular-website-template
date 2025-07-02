@@ -1,6 +1,6 @@
-/* || Top App Bar */
+/* || App Bar */
 
-.top-app-bar {
+.app-bar {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -17,19 +17,19 @@
     transition: box-shadow 250ms ease-in-out, transform 0.5s ease;
 }
 
-.top-app-bar.remove {
+.app-bar.remove {
     transform: translateY(-100%);
 }
 
-.top-app-bar .filled-icon-button {
+.app-bar .filled-icon-button {
     background: none;
 }
 
-.top-app-bar #menu-button {
+.app-bar #menu-button {
     color: var(--md-sys-color-on-surface);
 }
 
-.top-app-bar #headline {
+.app-bar #headline {
     margin-left: 16px;
     font-weight: 400;
     font-size: 24px;
@@ -38,15 +38,15 @@
     color: var(--md-sys-color-on-surface);
 }
 
-.top-app-bar .trailing-icons {
+.app-bar .trailing-icons {
     display: flex;
     margin-left: auto;
 }
 
-.top-app-bar .trailing-icons .filled-icon-button {
+.app-bar .trailing-icons .filled-icon-button {
     color: var(--md-sys-color-on-surface-variant);
 }
 
-.top-app-bar .trailing-icons .filled-icon-button:not(:first-child) {
+.app-bar .trailing-icons .filled-icon-button:not(:first-child) {
     margin-left: 24px;
 }
