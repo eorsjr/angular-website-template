@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationComponent } from './layout/navigation/navigation.component';
 import { PaneComponent } from "./layout/pane/pane.component";
-import { AppBarComponent as AppBarComponent } from "./layout/app-bar/app-bar.component";
+import { AppBarComponent } from "./layout/app-bar/app-bar.component";
 import { ThemeService } from './services/theme.service';
 import { ElevationService } from './services/elevation.service';
 import { Router, NavigationEnd } from '@angular/router';
