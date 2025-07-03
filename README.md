@@ -9,11 +9,9 @@ Additionally, features unrelated to MWC are also being developed to improve the 
 ### Highlights
 
 #### Components
-- **Top App Bar**
-- **Navigation Component** (adaptive)
-    - Navigation Bar (for compact window class)
-    - Navigation Rail (for larger window classes)
-- **Navigation Drawer**
+- **App Bar**
+- **Flexible Navigation Bar**
+- **Navigation Rail**
 - **Pane**
 - **Scrim**
 - **Cards**
@@ -52,10 +50,10 @@ Additionally, features unrelated to MWC are also being developed to improve the 
 ### Planned Features
 No additional features are currently planned.
 
-## Currently in Development
+<!-- ## Currently in Development
 - :white_check_mark: Copy Table Feature (Completed)
-- :white_check_mark: Lightbox Feature (Completed)
+- :white_check_mark: Lightbox Feature (Completed) -->
 
 ## Related Projects
 
-A static version built with only HTML, CSS, and JavaScript is available at https://github.com/eorsjr/website-template.
+A legacy static version built with only HTML, CSS, and JavaScript is available at https://github.com/eorsjr/website-template.
