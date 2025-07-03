@@ -1,12 +1,15 @@
 <header class="app-bar">
     <button class="filled-icon-button" id="menu-button"
-            [attr.aria-label]="navService.navigationDrawerOpen() ? 'Close Menu' : 'Open Menu'"
-            (click)="navService.toggleNavigationDrawer()">
+        [attr.aria-label]="navService.navigationRailOpen() ? 'Close Menu' : 'Open Menu'"
+        (click)="navService.toggleNavigationRail()">
         <span class="material-symbols-outlined icon">
-            {{ navService.navigationDrawerOpen() ? 'menu_open' : 'menu' }}
+            {{ navService.navigationRailOpen() ? 'menu_open' : 'menu' }}
         </span>
     </button>
-    <div id="headline">Headline</div>
+    <div class="text-container centered-text">
+        <div id="headline">Headline</div>
+        <div id="subtitle">Subtitle</div>
+    </div>
     <div class="trailing-icons">
         <button class="filled-icon-button" id="color-scheme-button"
             [attr.aria-label]="themeService.isDarkMode() ? 'Switch to Light Mode' : 'Switch to Dark Mode'"

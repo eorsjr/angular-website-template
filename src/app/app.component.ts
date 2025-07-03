@@ -4,6 +4,7 @@ import { PaneComponent } from "./layout/pane/pane.component";
 import { AppBarComponent } from "./layout/app-bar/app-bar.component";
 import { ThemeService } from './services/theme.service';
 import { ElevationService } from './services/elevation.service';
+import { NavigationService } from './services/navigation.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { ScrimComponent } from './layout/scrim/scrim.component';
@@ -19,7 +20,7 @@ import { LightboxComponent } from './lightbox/lightbox.component';
 export class AppComponent {
   title = 'angular-website-template';
 
-  constructor(private router: Router, private themeService: ThemeService, private elevationService: ElevationService) {
+  constructor(private router: Router, private themeService: ThemeService, private elevationService: ElevationService, private navigationService: NavigationService) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -35,5 +36,6 @@ export class AppComponent {
       this.themeService.updateThemeColor();
     });
     this.elevationService.initialize();
+    this.navigationService.setupAutoCloseOnResize();
   }
 }

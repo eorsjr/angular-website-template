@@ -21,7 +21,7 @@ export class ElevationService {
   }
 
   /**
-   * Updates the elevation of the top app bar based on the scroll position or if the navigation drawer is open.
+   * Updates the elevation of the top app bar based on the scroll position or if the navigation rail is open.
    * @returns {void}
    */
   public updateElevation(): void {
@@ -30,8 +30,8 @@ export class ElevationService {
 
     if (!this.appBar) return;
       const navigationService = this.injector.get(NavigationService);
-    if (scrolled || navigationService.navigationDrawerOpen()) {
-      this.appBar.style.setProperty('box-shadow', 'var(--elevation-level-1)');
+    if (scrolled || navigationService.navigationRailOpen()) {
+      this.appBar.style.setProperty('box-shadow', 'var(--elevation-level-2)');
     } else {
       this.appBar.style.setProperty('box-shadow', 'none');
     }

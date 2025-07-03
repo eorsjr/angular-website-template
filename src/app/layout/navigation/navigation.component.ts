@@ -1,13 +1,13 @@
 import { Component, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { NavigationComponentComponent } from "./navigation-component/navigation-component.component";
-import { NavigationDrawerComponent } from "./navigation-drawer/navigation-drawer.component";
+import { FlexibleNavigationBarComponent } from "./flexible-navigation-bar/flexible-navigation-bar.component";
+import { NavigationRailComponent } from "./navigation-rail/navigation-rail.component";
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
-  imports: [NavigationComponentComponent, NavigationDrawerComponent],
+  imports: [FlexibleNavigationBarComponent, NavigationRailComponent],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css'
 })
@@ -30,7 +30,7 @@ export class NavigationComponent implements AfterViewInit {
    * @param currentUrl The current URL to match against navigation routes.
    */
   private updateActiveIndicator(currentUrl: string): void {
-    const navItems = this.elRef.nativeElement.querySelectorAll('.nav-button, .list-item');
+    const navItems = this.elRef.nativeElement.querySelectorAll('.nav-item');
 
     navItems.forEach((el: HTMLElement) => {
       const route = el.getAttribute('customLink') || el.getAttribute('routerLink');

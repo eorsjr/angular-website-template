@@ -10,8 +10,8 @@
     left: 0;
     height: 64px;
     width: 100%;
-    padding-left: calc(16px + env(safe-area-inset-left));
-    padding-right: calc(16px + env(safe-area-inset-right));
+    padding-left: calc(4px + env(safe-area-inset-left));
+    padding-right: calc(4px + env(safe-area-inset-right));
     background-color: var(--md-sys-color-surface-container);
     transform: translateY(0);
     transition: box-shadow 250ms ease-in-out, transform 0.5s ease;
@@ -29,12 +29,33 @@
     color: var(--md-sys-color-on-surface);
 }
 
+.app-bar .text-container {
+    margin-left: 4px;
+}
+
+.app-bar .text-container.centered-text {
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    text-align: center;
+}
+
 .app-bar #headline {
-    margin-left: 16px;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 28px;
     letter-spacing: 0;
+    color: var(--md-sys-color-on-surface);
+}
+
+.app-bar #subtitle {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
     color: var(--md-sys-color-on-surface);
 }
 
@@ -47,6 +68,9 @@
     color: var(--md-sys-color-on-surface-variant);
 }
 
-.app-bar .trailing-icons .filled-icon-button:not(:first-child) {
-    margin-left: 24px;
+/* For medium, expanded, large and extra-large window classes */
+@media (min-width: 840px) {
+    .app-bar #menu-button {
+        display: none;
+    }
 }

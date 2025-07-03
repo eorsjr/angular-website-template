@@ -6,14 +6,14 @@ import { effect } from '@angular/core';
   providedIn: 'root'
 })
 export class ScrollingService {
-  private drawerOpen = false; // Tracks if the navigation drawer is open
+  private railOpen = false; // Tracks if the navigation rail is open
   private scrollPos = 0; // Current scroll position of the window
   private prevScrollPos = window.scrollY; // Previous scroll position to determine scroll direction
 
 
   constructor(private navService: NavigationService) {
     effect(() => {
-      this.drawerOpen = this.navService.navigationDrawerOpen();
+      this.railOpen = this.navService.navigationRailOpen();
     });
     window.addEventListener('scroll', () => this.handleScrollVisibility());
   }
@@ -45,7 +45,7 @@ export class ScrollingService {
    * @returns {void}
    */
   public scrollToTop(): void {
-    if (window.innerWidth < 600) {
+    if (window.innerWidth < 840) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       const paneElement = document.querySelector('.pane') as HTMLElement;
@@ -58,7 +58,7 @@ export class ScrollingService {
    * @returns {void}
    */
   public jumpToTop(): void {
-    if (window.innerWidth < 600) {
+    if (window.innerWidth < 840) {
       const html = document.documentElement;
       const originalBehavior = html.style.scrollBehavior;
       html.style.scrollBehavior = 'auto';
@@ -80,19 +80,19 @@ export class ScrollingService {
    * @returns {void}
    */
   public handleScrollVisibility(): void {
-    const navComponent = document.querySelector('.navigation-component') as HTMLElement;
+    const navComponent = document.querySelector('.flexible-navigation-bar') as HTMLElement;
     const appBar = document.querySelector('.app-bar') as HTMLElement;
 
     const currentScrollPos = window.scrollY;
 
-    if (!this.drawerOpen) {
-      if (window.innerWidth >= 600 || this.prevScrollPos > currentScrollPos || currentScrollPos < 1) {
+    if (!this.railOpen) {
+      if (window.innerWidth >= 840 || this.prevScrollPos > currentScrollPos || currentScrollPos < 1) {
         navComponent?.classList.remove('remove');
       } else {
         navComponent?.classList.add('remove');
       }
 
-      if (window.innerWidth < 600) {
+      if (window.innerWidth < 840) {
         if (currentScrollPos > this.prevScrollPos && currentScrollPos > 1) {
           appBar?.classList.add('remove');
         } else if (currentScrollPos < this.prevScrollPos) {

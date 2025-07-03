@@ -7,8 +7,8 @@
     background-color: var(--md-sys-color-background);
 }
 
-/* For compact window class */
-@media (max-width: 599px) {
+/* For compact and medium window classes */
+@media (max-width: 839px) {
     body {
         overflow: scroll;
     }
@@ -26,8 +26,8 @@
     }
 }
 
-/* For medium, expanded, large and extra-large window classes */
-@media (min-width: 600px) {
+/* For expanded, large and extra-large window classes */
+@media (min-width: 840px) {
     body {
         overflow: hidden;
     }

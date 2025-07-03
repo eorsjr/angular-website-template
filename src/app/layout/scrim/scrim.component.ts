@@ -11,13 +11,13 @@ import { ScrimService } from '../../services/scrim.service';
 })
 export class ScrimComponent {
 
-  private drawerOpen = false; // Tracks if the navigation drawer is open
+  private railOpen = false; // Tracks if the navigation rail is open
 
   constructor(private scrollingService: ScrollingService, public navService: NavigationService, public scrimService: ScrimService) {
     effect(() => {
-      this.drawerOpen = this.navService.navigationDrawerOpen();
+      this.railOpen = this.navService.navigationRailOpen();
 
-      if (this.drawerOpen) {
+      if (this.railOpen) {
         this.scrollingService.disableScroll();
       } else {
         this.scrollingService.enableScroll();
@@ -26,12 +26,12 @@ export class ScrimComponent {
   }
 
   /**
-   * Toggles the navigation drawer if it is currently open.
+   * Toggles the navigation rail if it is currently open.
    * @returns {void}
    */
-  public toggleDrawer(): void {
-    if (this.navService.navigationDrawerOpen()) {
-      this.navService.toggleNavigationDrawer();
+  public toggleRail(): void {
+    if (this.navService.navigationRailOpen()) {
+      this.navService.toggleNavigationRail();
     }
   }
 }
