@@ -1,12 +1,11 @@
-import { Injectable, Injector } from '@angular/core';
-import { NavigationService } from './navigation.service';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ElevationService {
 
-  constructor(private injector: Injector) { }
+  constructor() { }
 
   private appBar: HTMLElement | null = null; // Reference to the top app bar element
 
@@ -29,8 +28,7 @@ export class ElevationService {
     const scrolled = window.scrollY > 0;
 
     if (!this.appBar) return;
-      const navigationService = this.injector.get(NavigationService);
-    if (scrolled || navigationService.navigationRailOpen()) {
+    if (scrolled && window.innerWidth < 840) {
       this.appBar.style.setProperty('box-shadow', 'var(--elevation-level-2)');
     } else {
       this.appBar.style.setProperty('box-shadow', 'none');

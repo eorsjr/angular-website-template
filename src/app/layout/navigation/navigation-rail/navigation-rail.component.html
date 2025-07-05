@@ -1,4 +1,10 @@
 <div class="navigation-rail">
+    <div class="menu-button-container">
+        <button class="filled-icon-button" id="menu-button" aria-label="Close Menu"
+            (click)="navService.toggleNavigationRail()">
+            <span class="material-symbols-outlined icon">menu_open</span>
+        </button>
+    </div>
     <div class="nav-items">
         <button class="nav-item" aria-label="Home" routerLink="/"
             (click)="navService.toggleNavigationRail(); scrollingService.scrollToTop();">

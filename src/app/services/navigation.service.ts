@@ -24,7 +24,7 @@ export class NavigationService {
         this.navigationRailOpen.set(!this.navigationRailOpen());
         rail.classList.toggle('show');
         this.elevationService.updateElevation();
-        this.scrimService.setZIndex(1);
+        this.scrimService.setZIndex(2);
         this.scrimService.isVisible.set(this.navigationRailOpen());
       }
     }
