@@ -30,9 +30,7 @@ export class LightboxComponent {
    */
   public closeLightbox(): void {
     this.loaded = false;
-  setTimeout(() => {
     this.lightboxService.closeLightbox();
-  }, 300); // Wait for fade-out to finish
   }
 
   /**
