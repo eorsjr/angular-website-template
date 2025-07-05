@@ -21,7 +21,7 @@
     max-height: 66vh;
     max-width: 100vw;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 1s ease;
 }
 
 #lightbox-image.fade-in {
