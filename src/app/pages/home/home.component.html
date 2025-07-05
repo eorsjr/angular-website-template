@@ -5,7 +5,7 @@
   ]" />
 <h1>Page Heading</h1>
 <main>
-    <section class="elevated-card">
+    <app-card [variant]="'elevated'">
         <h2>Elevated Card</h2>
         <h3>Subhead</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -20,8 +20,8 @@
                 <span class="label-text">Outlined card</span>
             </button>
         </div>
-    </section>
-    <section class="filled-card" id="filled-card">
+    </app-card>
+    <app-card [variant]="'filled'" id="filled-card">
         <h2>Filled Card</h2>
         <h3>Subhead</h3>
         <div class="side-by-side">
@@ -53,13 +53,13 @@
                 </button>
             </div>
         </div>
-    </section>
-    <section class="outlined-card" id="outlined-card">
+    </app-card>
+    <app-card [variant]="'outlined'" id="outlined-card">
         <h2>Outlined Card</h2>
         <h3>Subhead</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
             et dolore magna aliqua. Justo eget magna fermentum iaculis eu non. Ipsum dolor sit amet consectetur.
             Quis ipsum suspendisse ultrices gravida dictum fusce ut. Sodales ut eu sem integer vitae justo eget
             magna.</p>
-    </section>
+    </app-card>
 </main>

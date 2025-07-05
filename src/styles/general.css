@@ -25,6 +25,13 @@ body {
     color: var(--md-sys-color-on-background);
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
 /* || Typescale */
 
 body {

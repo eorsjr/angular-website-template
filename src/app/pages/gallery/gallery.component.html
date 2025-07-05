@@ -1,6 +1,6 @@
 <h1>Gallery</h1>
 <main>
-    <section class="elevated-card">
+    <app-card [variant]="'elevated'">
         <div class="hero-content">
             <app-slideshow [images]="[
     { src: 'https://placehold.co/1600x900', alt: 'Template Image 1600x900' },
@@ -15,5 +15,5 @@
             Quis ipsum suspendisse ultrices gravida dictum fusce ut. Sodales ut eu sem integer vitae justo eget
             magna.</p>
         <app-image-grid [images]="imageGridData"></app-image-grid>
-    </section>
+    </app-card>
 </main>

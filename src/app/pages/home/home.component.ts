@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { SlideshowComponent } from '../../slideshow/slideshow.component';
 import { CopyTableService } from '../../services/copy-table.service';
 import { CommonModule } from '@angular/common';
+import { CardComponent } from '../../card/card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SlideshowComponent, CommonModule],
+  imports: [SlideshowComponent, CommonModule, CardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

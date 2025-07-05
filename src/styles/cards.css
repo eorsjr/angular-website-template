@@ -1,22 +1,78 @@
-/* || Elevated card */
+/* || Card related global styles */
 
-.elevated-card {
-    border-radius: 12px;
-    background-color: var(--md-sys-color-surface-container-low);
-    box-shadow: var(--elevation-level-1);
+.card .hero-content {
+    aspect-ratio: 16/9;
+    margin-left: -16px;
+    margin-right: -16px;
 }
 
-/* || Filled card */
-
-.filled-card {
-    border-radius: 12px;
-    background-color: var(--md-sys-color-surface-container-highest);
+.card .hero-content img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-/* || Outlined card */
+.card img {
+    height: auto;
+    width: 100%;
+}
 
-.outlined-card {
-    border-radius: 12px;
-    border: 1px var(--md-sys-color-outline-variant) solid;
-    background-color: var(--md-sys-color-surface);
+/* || Side-by-side */
+
+.side-by-side {
+    display: flex;
+    justify-content: center;
+}
+
+/* For compact, medium and expanded window classes */
+@media (max-width: 1199px) {
+    .side-by-side {
+        flex-direction: column;
+    }
+
+    .side-by-side .left-side,
+    .side-by-side .right-side {
+        width: 100%;
+    }
+}
+
+/* For large and extra-large window classes */
+@media (min-width:1200px) {
+    .side-by-side .left-side {
+        margin-right: auto;
+        width: 47.5%;
+        max-width: 47.5%;
+    }
+
+    .side-by-side .right-side {
+        margin-left: auto;
+        width: 47.5%;
+        max-width: 47.5%;
+    }
+}
+
+/* || Clickable image */
+
+.clickable-image {
+    position: relative;
+    display: inline-block;
+    transition: box-shadow 250ms ease-in-out;
+}
+
+@media (hover:none) {
+    .clickable-image:active {
+        box-shadow: var(--elevation-level-1);
+        transition: none;
+    }
+}
+
+@media (hover:hover) {
+    .clickable-image:hover {
+        box-shadow: var(--elevation-level-1);
+    }
+}
+
+.clickable-image img {
+    display: block;
+    cursor: pointer;
 }
