@@ -6,8 +6,6 @@
   display: flex;
   position: fixed;
   z-index: 1;
-  padding-top: 12px;
-  padding-bottom: 16px;
   scrollbar-width: none;
   /* Firefox */
   -ms-overflow-style: none;
@@ -69,12 +67,16 @@
 
 @media (max-width: 599px) {
 
+  .flexible-navigation-bar {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
   /* For standalone mode */
   @media (display-mode:standalone) {
     .flexible-navigation-bar {
       height: auto;
       min-height: 64px;
-      padding-top: 4px;
       padding-bottom: env(safe-area-inset-bottom);
     }
   }
@@ -85,7 +87,6 @@
 
   .flexible-navigation-bar .nav-item .label-text {
     margin-top: 4px;
-    margin-bottom: 6px;
   }
 
   .flexible-navigation-bar .nav-item .icon {
@@ -146,6 +147,12 @@
 
 @media (min-width: 600px) and (max-width: 839px) {
 
+  .flexible-navigation-bar {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+
   .flexible-navigation-bar .nav-item {
     height: 40px;
     padding-left: 16px;
@@ -180,7 +187,8 @@
       transition: none;
     }
 
-    .flexible-navigation-bar .nav-item:active .icon, .flexible-navigation-bar .nav-item:active .label-text {
+    .flexible-navigation-bar .nav-item:active .icon,
+    .flexible-navigation-bar .nav-item:active .label-text {
       color: var(--md-sys-color-inverse-on-surface) !important;
       transition: none;
     }
